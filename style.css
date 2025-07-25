@@ -1,0 +1,120 @@
+/*Universal Box-Sizing Reset */
+*, *::before, *::after
+{
+    box-sizing: border-box;/*1*/
+}   /*This universal rule makes elements' width and height 
+    properties include padding and border, making layout calculations much more 
+    intuitive and predictable across all elements.
+/*Base Body Styles*/
+body
+{
+    font-family:'Tahoma', Verdana, sans-serif; /*Sets the default font for the entire page, 
+    falls to next one if default if not available)*/
+    margin: 0; /*Removes the default outer spacing (margin) that browsers apply to the body element.*/
+    padding: 0; /*removes default inner padding*/
+    line-height: 1.3; /*gives space between text*/
+    color: #1b0404;
+    background-color: #ffffff;
+}
+/* Crucial for fixed landing page: Hide overflow initially */
+html, body
+{
+    overflow: hidden; /*This is crucial for the landing page. It prevents any scrollbars 
+    from appearing on the html and body elements initially, making the hero section truly "fixed" and full-screen.*/
+    height: 100%;/*Ensures the html and body elements take up the full height of the viewport, 
+    which is necessary for vh (viewport height) units to work correctly for full-screen sections.*/
+}
+/* Optional: Smooth scrolling for when scrolling is re-enabled */
+html
+{
+    scroll-behavior:smooth;/*Enables smooth scrolling when a user clicks on an anchor link */
+}
+/* General Container for Centering Content */
+.container
+{
+    max-width: 1200px; /*Limits the maximum width of content within elements
+    that use the .container class, preventing content from stretching too wide on large screens.*/
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Global Button Styling (used for View My Art, Send Message) */
+.button
+{
+    display:inline-block; /*Makes the button behave like an inline element (can sit next to others) 
+    but allows block-level properties like width, height, padding, and margin.*/
+    background-color: #5820ff;
+    color: white;
+    padding: 12px 20px; /*top/bottom padding and left/right padding*/
+    border-radius: 20px; /*rounds corner of button*/
+    border-style: outset;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /*transition: background-color 0.3s ease, transform 0.2s ease;: Defines smooth 
+    animation effects for changes in background-color (0.3 seconds) and transform (0.2 seconds) on hover.*/
+    box-shadow: 3px 3px 8px rgba(47, 0, 255, 0.3); /*adds shadow
+     horizontal-offset, vertical-offset, blur-radius, spread-radius, color with opacity.*/
+}
+
+.button:hover
+{
+    background-color: #010004be; /*adds a colour when cursor is taken to the button*/
+    transform: translateY(-2px); /*gives a bouncy feature when hovered over button*/
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /*shadow colour changes when hovering over button*/
+}
+
+/*---Header Styles ---*/
+header
+{
+   background-color: #333; /*sets a dark grey background for header*/
+   color: white;/* changes colour of text in Header*/
+   padding: 1rem;/*Adds vertical padding 
+   (1rem = typically 16px) to the header, no horizontal padding as the .container handles that.*/
+   position:sticky; /*header will stay at the top after scrolling*/
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   z-index: 1000;
+   /*Ensures the header stays on top of other content if elements overlap. 
+   A higher z-index means it's "closer" to the user.*/
+   box-shadow: 0 8px 10px rgba(0,0,0,0.2); /*adds shadow to header*/
+}
+
+header.container
+{
+    display: flex;
+    /*Turns the .container inside the header into a flex container
+     allowing its direct children (h1 and nav) to be laid out using flexbox*/
+    justify-content: space-between; /*Distributes space evenly between the h1 and nav items, pushing them to opposite ends of the header*/
+    align-items:center; /*Vertically centers the h1 and nav items within the header.*/
+    /*h1 is the title and nav are the buttons*/
+}
+
+header h1
+{
+   margin:0;/*removes default margin from header*/
+   font-size: 1.8em;
+}
+
+header h1 a
+{
+    color:white;
+    text-decoration: none;
+}
+
+header h1 a:hover
+{
+    color: #f0f0f0;
+}
+
+header nav ul
+{
+    list-style: none; /*removes list bullets(or whatver list type is there)*/
+    margin: 0;
+    padding: 0;
+    display: flex; /*Makes the list items <li> display in a row using flexbox*/
+}
+
+header nav ul li
+{
+    margin-left: 20px;
+}
